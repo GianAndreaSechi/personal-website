@@ -26,7 +26,7 @@
             <div class="col-md-4">
               <h5>Technology</h5>
               <p>
-                Link: <a href="https://www.gianandreasechi.com/COVID19/index.php" title="NearMe Data" target="_blank">View app</a>
+                Link: <a href="https://www.gianandreasechi.com/COVID19/index.php" title="NearMe Data" target="_blank">View app</a> - GitHub: <a href="https://github.com/GianAndreaSechi/C19Sdk" title="Covid 19 python SDK" target="_blank">View</a> (python SDK)
                 <hr>
                 The application is entirely developed using JQuery to get data from the GitHub's Italian Civil Protection and to calculate ratio and math operations.
                 <ul>
