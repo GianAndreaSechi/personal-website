@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- 🧛 Dracula theme: uncomment the line below to activate --}}
+    {{-- @vite(['resources/css/dracula.css']) --}}
     <style>
         :root { color-scheme: dark; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0c111b; color: #e2e8f0; }
@@ -45,7 +47,7 @@
     <footer class="mt-20 border-t border-slate-800/80">
         <div class="max-w-6xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs text-slate-500">
             <p>© {{ date('Y') }} Gian Andrea Sechi · Built with Laravel.</p>
-            <div class="flex gap-5"><a href="https://github.com/GianAndreaSechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">GitHub</a><a href="https://linkedin.com/in/gian-andrea-sechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">LinkedIn</a><a href="mailto:me@gianandreasechi.com" class="hover:text-indigo-300">Email</a></div>
+            <div class="flex gap-5"><a href="https://github.com/GianAndreaSechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">GitHub</a><a href="https://linkedin.com/in/gian-andrea-sechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">LinkedIn</a><a href="https://www.threads.com/@gianandrea_sechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">Threads</a><a href="https://x.com/gasechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">X</a><a href="mailto:me@gianandreasechi.com" class="hover:text-indigo-300">Email</a></div>
         </div>
     </footer>
 </body>

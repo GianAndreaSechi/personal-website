@@ -1,0 +1,332 @@
+/*
+ * Dracula Theme Override
+ * https://draculatheme.com/
+ *
+ * Importa questo file DOPO app.css per attivare il tema Dracula.
+ * Basta rimuovere il <link> (o il riferimento @vite) per tornare al tema di default.
+ *
+ * Palette ufficiale:
+ *   Background   #282a36
+ *   Current Line #44475a
+ *   Foreground   #f8f8f2
+ *   Comment      #6272a4
+ *   Cyan         #8be9fd
+ *   Green        #50fa7b
+ *   Orange       #ffb86c
+ *   Pink         #ff79c6
+ *   Purple       #bd93f9
+ *   Red          #ff5555
+ *   Yellow       #f1fa8c
+ *
+ * Scelta di design:
+ *   - Sfondo principale: #1a1b26 (più scuro del Dracula puro #282a36,
+ *     mantiene la sensazione del tema precedente e garantisce contrasto
+ *     alle superfici/card che usano #282a36 come "livello +1")
+ *   - Superfici elevate (card, code block, header): #282a36
+ *   - Bordi: #44475a (Current Line ufficiale)
+ *   - Testo primario: #f8f8f2, secondario: #cfd2e0, muted: #6272a4
+ *   - Accent principale: purple #bd93f9  (sostituisce indigo)
+ *   - Accent secondario: cyan #8be9fd
+ */
+
+/* ─── Variabili CSS locali ────────────────────────────────────────────── */
+
+:root {
+    --dr-bg:         #1a1b26;   /* sfondo pagina              */
+    --dr-surface:    #282a36;   /* card, header, code block   */
+    --dr-raised:     #2e3045;   /* hover / input focus        */
+    --dr-border:     #44475a;   /* bordi                      */
+    --dr-fg:         #f8f8f2;   /* testo principale           */
+    --dr-fg-2:       #cfd2e0;   /* testo secondario           */
+    --dr-muted:      #6272a4;   /* testo disattivato          */
+    --dr-purple:     #bd93f9;   /* accent principale          */
+    --dr-cyan:       #8be9fd;   /* accent secondario          */
+    --dr-green:      #50fa7b;
+    --dr-pink:       #ff79c6;
+    --dr-orange:     #ffb86c;
+    --dr-yellow:     #f1fa8c;
+    --dr-red:        #ff5555;
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────────── */
+
+body {
+    background: var(--dr-bg) !important;
+    color: var(--dr-fg) !important;
+}
+
+.bg-grid-pattern {
+    background-image:
+        linear-gradient(to right, rgba(98, 114, 164, .05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(98, 114, 164, .05) 1px, transparent 1px) !important;
+}
+
+::selection {
+    background: var(--dr-purple) !important;
+    color: var(--dr-fg) !important;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+
+header {
+    background-color: rgba(26, 27, 38, 0.92) !important;
+    border-bottom-color: var(--dr-border) !important;
+}
+
+/* Logo badge */
+header span[class*="border"] {
+    border-color: rgba(189, 147, 249, 0.45) !important;
+    color: var(--dr-purple) !important;
+}
+
+/* Brand name */
+header .text-slate-200,
+header span[class*="text-slate-200"] {
+    color: var(--dr-fg) !important;
+}
+
+/* Nav links */
+header nav a                   { color: var(--dr-muted) !important; }
+header nav a:hover             { color: var(--dr-fg) !important; }
+header nav a.text-indigo-300   { color: var(--dr-purple) !important; }
+
+/* Contact CTA */
+header > div > div > a.text-indigo-300,
+header a.text-indigo-300 {
+    color: var(--dr-cyan) !important;
+}
+header > div > div > a.text-indigo-300:hover {
+    color: var(--dr-fg) !important;
+}
+
+/* ─── Footer ────────────────────────────────────────────────────────────── */
+
+footer {
+    border-top-color: var(--dr-border) !important;
+    color: var(--dr-muted) !important;
+}
+footer p { color: var(--dr-muted) !important; }
+footer a:hover { color: var(--dr-purple) !important; }
+
+/* ─── Tailwind slate overrides ──────────────────────────────────────────── */
+
+/* Testi */
+.text-white,
+[class*="text-white"]   { color: var(--dr-fg) !important; }
+[class*="text-slate-100"] { color: var(--dr-fg) !important; }
+[class*="text-slate-200"] { color: var(--dr-fg) !important; }
+[class*="text-slate-300"] { color: var(--dr-fg-2) !important; }
+[class*="text-slate-400"] { color: var(--dr-muted) !important; }
+[class*="text-slate-500"] { color: var(--dr-muted) !important; }
+[class*="text-slate-600"] { color: rgba(98, 114, 164, 0.65) !important; }
+
+/* Sfondi superfici */
+[class*="bg-slate-950"],
+[class*="bg-slate-900"],
+[class*="bg-slate-800"] {
+    background-color: var(--dr-surface) !important;
+}
+
+/* Bordi */
+[class*="border-slate-800"],
+[class*="border-slate-700"] {
+    border-color: var(--dr-border) !important;
+}
+[class*="divide-slate-800"] > * + * {
+    border-color: var(--dr-border) !important;
+}
+
+/* Indigo → Dracula purple */
+[class*="text-indigo"]   { color: var(--dr-purple) !important; }
+[class*="bg-indigo"]     { background-color: rgba(189, 147, 249, 0.12) !important; }
+[class*="border-indigo"] { border-color: rgba(189, 147, 249, 0.4) !important; }
+
+/* Focus indigo su input */
+[class*="focus:border-indigo"]:focus {
+    border-color: var(--dr-purple) !important;
+}
+
+/* Emerald (green string nel JSON box) */
+[class*="text-emerald"]  { color: var(--dr-green) !important; }
+
+/* ─── Home: JSON profile card ────────────────────────────────────────────── */
+
+/* Il box con bg-slate-950/40 e border-slate-700/70 */
+.border.border-slate-700\/70,
+[class*="border-slate-700"] {
+    border-color: var(--dr-border) !important;
+    background-color: var(--dr-surface) !important;
+}
+
+/* Il pallino online (bg-emerald-400/80) */
+[class*="bg-emerald"] {
+    background-color: var(--dr-green) !important;
+    opacity: 0.85;
+}
+
+/* ─── Sezioni con bg-slate-950/20 (es. Projects strip) ────────────────── */
+
+[class*="bg-slate-950\/20"],
+[class*="bg-slate-950\/40"] {
+    background-color: rgba(40, 42, 54, 0.4) !important;
+}
+
+/* ─── Input di ricerca blog ──────────────────────────────────────────────── */
+
+input[type="text"] {
+    background-color: transparent !important;
+    color: var(--dr-fg) !important;
+    border-color: var(--dr-border) !important;
+}
+input[type="text"]::placeholder {
+    color: var(--dr-muted) !important;
+    opacity: 0.6;
+}
+input[type="text"]:focus {
+    border-color: var(--dr-purple) !important;
+}
+
+/* ─── Main – superfici generali ─────────────────────────────────────────── */
+
+main [class*="bg-gradient"] {
+    background-image: none !important;
+    background-color: rgba(40, 42, 54, 0.5) !important;
+}
+
+main [class*="bg-cyan"],
+main [class*="bg-emerald"],
+main [class*="bg-amber"],
+main [class*="bg-purple"],
+main [class*="bg-rose"] {
+    background-color: rgba(40, 42, 54, 0.5) !important;
+}
+
+main [class*="border-cyan"],
+main [class*="border-emerald"],
+main [class*="border-amber"],
+main [class*="border-purple"],
+main [class*="border-rose"] {
+    border-color: rgba(189, 147, 249, 0.3) !important;
+}
+
+main .text-transparent {
+    color: var(--dr-purple) !important;
+    background-clip: border-box !important;
+}
+
+main .text-cyan-300,
+main .text-cyan-400,
+main .text-emerald-300,
+main .text-emerald-400,
+main .text-amber-400,
+main .text-purple-400,
+main .text-rose-400 {
+    color: var(--dr-purple) !important;
+}
+
+/* ─── Prose ──────────────────────────────────────────────────────────────── */
+
+main .prose                   { color: var(--dr-fg-2) !important; }
+main .prose h1,
+main .prose h2,
+main .prose h3,
+main .prose h4                { color: var(--dr-fg) !important; }
+main .prose p                 { color: var(--dr-fg-2) !important; }
+main .prose a                 { color: var(--dr-cyan) !important; }
+main .prose a:hover           { color: var(--dr-fg) !important; }
+main .prose strong            { color: var(--dr-fg) !important; }
+main .prose ul,
+main .prose ol                { color: var(--dr-fg-2) !important; }
+main .prose li::marker        { color: var(--dr-purple) !important; }
+main .prose blockquote {
+    border-left-color: var(--dr-purple) !important;
+    color: var(--dr-fg) !important;
+}
+main .prose code {
+    color: var(--dr-pink) !important;
+    background: rgba(68, 71, 90, 0.55) !important;
+}
+main .prose pre {
+    background: var(--dr-surface) !important;
+    border-color: var(--dr-border) !important;
+}
+main .prose pre code {
+    color: var(--dr-fg) !important;
+    background: transparent !important;
+}
+main .prose hr    { border-top-color: var(--dr-border) !important; }
+main .prose img   { border-color: var(--dr-border) !important; }
+
+/* ─── About / Resume surfaces ────────────────────────────────────────────── */
+
+.about-page > div > :first-child,
+.resume-page > div > :first-child {
+    border-bottom-color: var(--dr-border) !important;
+}
+
+.about-page [class*="border"],
+.resume-page [class*="border"] {
+    border-color: rgba(68, 71, 90, 0.9) !important;
+}
+
+.about-page .about-story,
+.about-page .about-quote,
+.resume-page .resume-summary {
+    border-color: var(--dr-border) !important;
+}
+
+.resume-page .grid > div,
+.resume-page .relative.group > div:last-child {
+    border-color: var(--dr-border) !important;
+}
+
+/* ─── Tech badges ────────────────────────────────────────────────────────── */
+
+.resume-page .tech-badge {
+    background-color: rgba(26, 27, 38, 0.9) !important;
+    border-color: var(--dr-border) !important;
+    color: var(--dr-fg-2) !important;
+}
+.resume-page .tech-badge:hover {
+    background-color: rgba(68, 71, 90, 0.5) !important;
+    border-color: rgba(189, 147, 249, 0.6) !important;
+    color: var(--dr-fg) !important;
+}
+.resume-page .tech-badge-cyan {
+    border-color: rgba(139, 233, 253, 0.45) !important;
+    color: var(--dr-cyan) !important;
+}
+.resume-page .tech-badge-cyan:hover {
+    background-color: rgba(139, 233, 253, 0.1) !important;
+    border-color: rgba(139, 233, 253, 0.7) !important;
+    color: var(--dr-fg) !important;
+}
+.resume-page .tech-badge-indigo {
+    border-color: rgba(189, 147, 249, 0.45) !important;
+    color: var(--dr-purple) !important;
+}
+.resume-page .tech-badge-indigo:hover {
+    background-color: rgba(189, 147, 249, 0.15) !important;
+    border-color: rgba(189, 147, 249, 0.7) !important;
+    color: var(--dr-fg) !important;
+}
+
+/* ─── Date tiles ─────────────────────────────────────────────────────────── */
+
+.resume-page .date-tile-indigo {
+    background-color: rgba(68, 71, 90, 0.4) !important;
+    border-color: rgba(189, 147, 249, 0.5) !important;
+    color: var(--dr-purple) !important;
+}
+.resume-page .date-tile-cyan {
+    background-color: rgba(139, 233, 253, 0.08) !important;
+    border-color: rgba(139, 233, 253, 0.5) !important;
+    color: var(--dr-cyan) !important;
+}
+
+/* ─── Promotion timeline ─────────────────────────────────────────────────── */
+
+.promotion-path::before    { border-left-color: var(--dr-border) !important; }
+.promotion-dot             { background: var(--dr-purple) !important; box-shadow: 0 0 0 3px var(--dr-bg) !important; }
+.promotion-step p          { color: var(--dr-fg-2) !important; }
+.promotion-step p span     { color: var(--dr-muted) !important; }
