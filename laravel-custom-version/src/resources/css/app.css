@@ -1,0 +1,166 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Shared visual language for all public pages: quiet surfaces, one accent. */
+main [class*="shadow"] { box-shadow: none !important; }
+main [class*="rounded-2xl"],
+main [class*="rounded-3xl"],
+main [class*="rounded-xl"] { border-radius: .5rem !important; }
+main [class*="bg-gradient"] { background-image: none !important; background-color: rgba(15, 23, 42, .35) !important; }
+main .text-transparent { color: #c7d2fe !important; background-clip: border-box !important; }
+main [class*="bg-cyan"], main [class*="bg-emerald"], main [class*="bg-amber"], main [class*="bg-purple"], main [class*="bg-rose"] { background-color: rgba(49, 46, 129, .13) !important; }
+main [class*="border-cyan"], main [class*="border-emerald"], main [class*="border-amber"], main [class*="border-purple"], main [class*="border-rose"] { border-color: rgba(129, 140, 248, .28) !important; }
+main .text-cyan-300, main .text-cyan-400, main .text-emerald-300, main .text-emerald-400, main .text-amber-400, main .text-purple-400, main .text-rose-400 { color: #a5b4fc !important; }
+main .prose { color: #94a3b8; }
+main .prose > :first-child { margin-top: 0; }
+main .prose > :last-child { margin-bottom: 0; }
+main .prose h1, main .prose h2, main .prose h3, main .prose h4 { color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: -.025em; }
+main .prose h1 { font-size: clamp(1.875rem, 4vw, 2.5rem); line-height: 1.15; margin: 2.5rem 0 1rem; }
+main .prose h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); line-height: 1.25; margin: 2.75rem 0 .9rem; padding-top: .25rem; }
+main .prose h3 { font-size: 1.2rem; line-height: 1.35; margin: 2rem 0 .7rem; }
+main .prose h4 { font-size: 1rem; line-height: 1.45; margin: 1.5rem 0 .5rem; }
+main .prose p { color: #94a3b8; line-height: 1.8; margin: 0 0 1.35rem; }
+main .prose a { color: #a5b4fc; }
+main .prose a:hover { color: #e0e7ff; text-decoration: underline; text-underline-offset: .2em; }
+main .prose strong { color: #e2e8f0; font-weight: 600; }
+main .prose ul, main .prose ol { margin: 0 0 1.35rem 1.25rem; color: #94a3b8; }
+main .prose ul { list-style: disc; }
+main .prose ol { list-style: decimal; }
+main .prose li { padding-left: .25rem; margin: .45rem 0; line-height: 1.75; }
+main .prose li::marker { color: #818cf8; }
+main .prose blockquote { margin: 1.75rem 0; padding: .1rem 0 .1rem 1.15rem; border-left: 2px solid #818cf8; color: #cbd5e1; font-style: italic; }
+main .prose blockquote p { color: inherit; }
+main .prose code { font-family: 'Fira Code', monospace; font-size: .85em; color: #c7d2fe; background: rgba(99, 102, 241, .12); padding: .15rem .35rem; border-radius: .2rem; }
+main .prose pre { overflow-x: auto; margin: 1.75rem 0; padding: 1.1rem 1.25rem; background: rgba(2, 6, 23, .65); border: 1px solid rgb(30 41 59); border-radius: .35rem; }
+main .prose pre code { padding: 0; color: #cbd5e1; background: transparent; font-size: .8rem; line-height: 1.7; }
+main .prose hr { border: 0; border-top: 1px solid rgb(30 41 59); margin: 2.5rem 0; }
+main .prose img { max-width: 100%; height: auto; margin: 1.75rem 0; border: 1px solid rgb(30 41 59); }
+
+/* Narrative and CV pages use the same document-like treatment as Projects. */
+.about-page > div > :first-child, .resume-page > div > :first-child { border-bottom-color: rgb(30 41 59) !important; }
+.about-page [class*="bg-slate"], .resume-page [class*="bg-slate"],
+.about-page [class*="bg-indigo"], .resume-page [class*="bg-indigo"] { background-color: transparent !important; }
+.about-page [class*="border"], .resume-page [class*="border"] { border-color: rgb(30 41 59 / .9) !important; }
+.about-page [class*="w-8"], .about-page [class*="w-10"],
+.resume-page [class*="w-10"] { border-radius: 0 !important; }
+.about-page [class*="rounded-full"], .resume-page [class*="rounded-full"] { border-radius: .25rem !important; }
+
+/* Final document treatment: no floating panels on About and Resume. */
+.about-page .about-story, .about-page .about-quote, .resume-page .resume-summary {
+    background: transparent !important;
+    border-width: 1px 0 0 !important;
+    border-color: rgb(30 41 59) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 2rem 0 0 !important;
+}
+.about-page .about-story > div { padding-top: 2rem; }
+.about-page .about-story > div:first-child { padding-top: 0; }
+.about-page .about-story [class*="bg-"], .resume-page .resume-summary [class*="bg-"] { background: transparent !important; }
+.about-page .about-quote { text-align: left !important; }
+.about-page .about-quote i { display: none; }
+.about-page .about-quote p:first-of-type { font-size: 1.125rem; line-height: 1.75; }
+.resume-page .grid > div {
+    background: transparent !important;
+    border-width: 1px 0 0 !important;
+    border-color: rgb(30 41 59) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 1.25rem 0 !important;
+}
+.resume-page .relative.group > div:last-child {
+    background: transparent !important;
+    border-width: 1px 0 0 !important;
+    border-color: rgb(30 41 59) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 1.5rem 0 !important;
+}
+.resume-page .relative.group > div:first-child { display: none; }
+.resume-page .inline-flex { background: transparent !important; border: 0 !important; padding: 0 !important; }
+.resume-page h2, .about-page h2 { letter-spacing: -.02em; }
+
+/* Badges & Pills in Resume */
+.resume-page .tech-badge {
+    display: inline-flex !important;
+    align-items: center;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem !important;
+    line-height: 1.25;
+    padding: 0.22rem 0.55rem !important;
+    border-radius: 0.35rem !important;
+    background-color: rgba(15, 23, 42, 0.75) !important;
+    border: 1px solid rgba(51, 65, 85, 0.65) !important;
+    color: #cbd5e1 !important;
+    white-space: nowrap;
+    transition: all 0.15s ease-in-out;
+}
+
+.resume-page .tech-badge:hover {
+    background-color: rgba(49, 46, 129, 0.35) !important;
+    border-color: rgba(129, 140, 248, 0.6) !important;
+    color: #e0e7ff !important;
+}
+
+.resume-page .tech-badge-cyan {
+    border-color: rgba(6, 182, 212, 0.4) !important;
+    color: #a5f3fc !important;
+}
+
+.resume-page .tech-badge-cyan:hover {
+    background-color: rgba(6, 182, 212, 0.15) !important;
+    border-color: rgba(34, 211, 238, 0.7) !important;
+    color: #ffffff !important;
+}
+
+.resume-page .tech-badge-indigo {
+    border-color: rgba(99, 102, 241, 0.4) !important;
+    color: #c7d2fe !important;
+}
+
+.resume-page .tech-badge-indigo:hover {
+    background-color: rgba(99, 102, 241, 0.25) !important;
+    border-color: rgba(129, 140, 248, 0.7) !important;
+    color: #ffffff !important;
+}
+
+/* Date tile styles in Resume */
+.resume-page .date-tile {
+    display: inline-flex !important;
+    align-items: center;
+    padding: 0.25rem 0.85rem !important;
+    border-radius: 9999px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.resume-page .date-tile-indigo {
+    background-color: rgba(49, 46, 129, 0.3) !important;
+    border: 1px solid rgba(99, 102, 241, 0.5) !important;
+    color: #c7d2fe !important;
+}
+
+.resume-page .date-tile-cyan {
+    background-color: rgba(6, 182, 212, 0.15) !important;
+    border: 1px solid rgba(6, 182, 212, 0.5) !important;
+    color: #a5f3fc !important;
+}
+
+/* Compact internal timelines make career progression visible inside an employer. */
+.promotion-path { position: relative; margin: .25rem 0 1.25rem; padding-left: 1.25rem; }
+.promotion-path::before { content: ''; position: absolute; left: 3px; top: .55rem; bottom: .55rem; border-left: 1px dashed rgb(71 85 105); }
+.promotion-step { position: relative; min-height: 1.75rem; }
+.promotion-step + .promotion-step { margin-top: .35rem; }
+.promotion-dot { position: absolute; left: -1.05rem; top: .45rem; width: .42rem; height: .42rem; border-radius: 999px; background: #818cf8; box-shadow: 0 0 0 3px #0c111b; }
+.promotion-step p { font-size: .75rem; color: #cbd5e1; }
+.promotion-step p span { color: #64748b; }
