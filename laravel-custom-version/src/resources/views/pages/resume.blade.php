@@ -386,7 +386,7 @@
                         <h4 class="font-bold text-white text-base">Near-me</h4>
                         <p class="text-xs text-slate-300 leading-relaxed">Non-profit website providing visibility to local merchants in Modena during COVID-19 lockdowns for takeaway, deliveries, and hours.</p>
                     </div>
-                    <a href="https://www.gianandreasechi.com/near-me" target="_blank" class="text-xs font-bold text-emerald-400 hover:text-white flex items-center space-x-1">
+                    <a href="{{ route('projects.show', 'near-me') }}" target="_blank" class="text-xs font-bold text-emerald-400 hover:text-white flex items-center space-x-1">
                         <span>Learn More</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
