@@ -22,8 +22,8 @@ class BlogController extends Controller
             $search = $request->search;
             $query->where(function ($q) use ($search) {
                 $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('excerpt', 'like', "%{$search}%")
-                  ->orWhere('content', 'like', "%{$search}%");
+                    ->orWhere('excerpt', 'like', "%{$search}%")
+                    ->orWhere('content', 'like', "%{$search}%");
             });
         }
 
@@ -34,7 +34,9 @@ class BlogController extends Controller
 
         $totalPostsCount = Post::whereNotNull('published_at')->count();
         $posts = $query->orderBy('published_at', 'desc')->paginate(12)->withQueryString();
-        $categories = Category::withCount('posts')->get();
+        $categories = Category::withCount(['posts' => fn ($query) => $query->whereNotNull('published_at')])
+            ->whereHas('posts', fn ($query) => $query->whereNotNull('published_at'))
+            ->orderBy('name')->get();
 
         $featuredPost = Post::with('category')
             ->where('is_featured', true)

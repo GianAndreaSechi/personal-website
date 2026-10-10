@@ -12,6 +12,7 @@ class PageController extends Controller
     {
         $featuredProjects = Project::where('is_featured', true)
             ->orderBy('sort_order', 'asc')
+            ->limit(4)
             ->get();
 
         $latestPosts = Post::with('category')
@@ -20,9 +21,7 @@ class PageController extends Controller
             ->take(3)
             ->get();
 
-        $iridesProject = Project::where('slug', 'irides')->first();
-
-        return view('pages.home', compact('featuredProjects', 'latestPosts', 'iridesProject'));
+        return view('pages.home', compact('featuredProjects', 'latestPosts'));
     }
 
     public function about()
@@ -32,7 +31,15 @@ class PageController extends Controller
 
     public function resume()
     {
-        return view('pages.resume');
+        $projects = Project::whereIn('slug', ['irides', 'near-me', 'near-me-data'])
+            ->orderBy('sort_order')->get();
+
+        return view('pages.resume', compact('projects'));
+    }
+
+    public function downloadResume()
+    {
+        return response()->download(resource_path('documents/gian-andrea-sechi-cv.pdf'), 'Gian-Andrea-Sechi-CV.pdf');
     }
 
     public function projects(Request $request)
@@ -44,11 +51,9 @@ class PageController extends Controller
         }
 
         $projects = $query->get();
-        $categories = Project::select('category')->distinct()->pluck('category');
+        $categories = Project::select('category')->distinct()->orderBy('category')->pluck('category');
 
-        $irides = Project::where('slug', 'irides')->first();
-
-        return view('pages.projects', compact('projects', 'categories', 'irides'));
+        return view('pages.projects', compact('projects', 'categories'));
     }
 
     public function projectShow($slug)
@@ -59,10 +64,6 @@ class PageController extends Controller
             ->orderBy('sort_order', 'asc')
             ->take(3)
             ->get();
-
-        if ($project->slug === 'irides') {
-            return view('pages.projects.irides', compact('project', 'otherProjects'));
-        }
 
         return view('pages.projects.show', compact('project', 'otherProjects'));
     }

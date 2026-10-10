@@ -3,9 +3,11 @@
 @section('title', $post->title . ' | Gian Andrea Sechi')
 @section('meta_description', $post->excerpt)
 
+@section('og_type', 'article')
+
 @section('content')
 <article class="max-w-4xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
-    <a href="{{ route('blog.index') }}" class="font-mono text-xs text-slate-500 hover:text-indigo-300">← all articles</a>
+    <a href="{{ route('blog.index') }}" class="font-mono text-xs text-slate-500 hover:text-indigo-300">← All articles</a>
     <header class="mt-8 pb-9 border-b border-slate-800">
         <p class="font-mono text-xs text-indigo-300">{{ $post->published_at->format('M j, Y') }} · {{ $post->reading_time }} min read @if($post->category) · {{ strtolower($post->category->name) }} @endif</p>
         <h1 class="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">{{ $post->title }}</h1>
@@ -31,7 +33,7 @@
         </div>
     @endif
 
-    <aside class="mt-10 pt-6 border-t border-slate-800 flex gap-4 text-sm"><span class="font-mono text-indigo-300 tracking-tighter">&lt;/&gt;</span><div><p class="font-semibold text-slate-200">Gian Andrea Sechi</p><p class="mt-1 text-xs leading-5 text-slate-500">Senior Backend Engineer L5 @ Musixmatch. Writing about reliable systems, data platforms and engineering craft.</p></div></aside>
+    <aside class="mt-10 pt-6 border-t border-slate-800 flex gap-4 text-sm"><span class="font-mono text-indigo-300 tracking-tighter">&lt;/&gt;</span><div><p class="font-semibold text-slate-200"><a href="{{ route('about') }}" class="hover:text-indigo-300">Gian Andrea Sechi</a></p><p class="mt-1 text-xs leading-5 text-slate-500">Software engineer at Musixmatch. Sharing projects, experiments and things I’m learning.</p></div></aside>
 
     @if($relatedPosts->count())
         <section class="mt-12 pt-7 border-t border-slate-800">

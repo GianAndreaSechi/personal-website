@@ -19,6 +19,18 @@ L'area `/admin` e `/login` sono escluse dalla sitemap e restituiscono
 `X-Robots-Tag: noindex, nofollow`, anche per redirect ed errori. Non bloccarle
 in `robots.txt`: i motori devono poter leggere la direttiva `noindex`.
 
+## Contenuti del sito
+
+I testi dei progetti sono in `content/projects/*.md`; i dati professionali condivisi
+sono in `config/profile.php`. Per aggiornare le schede esistenti senza ricreare il
+database usare `php artisan projects:sync --dry-run`, poi `php artisan projects:sync`.
+Il comando salva una copia dei record precedenti in `storage/app/content-backups`.
+
+La revisione editoriale e i comandi per il deploy sono descritti in
+[docs/editorial/content-review.md](docs/editorial/content-review.md). Il README GitHub
+e le tracce degli articoli nella stessa cartella sono bozze non pubblicate.
+Il CV scaricabile è il PDF in `resources/documents/gian-andrea-sechi-cv.pdf`.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
