@@ -7,6 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Sitemap e indicizzazione
+
+La sitemap XML è disponibile su `/sitemap.xml` e viene generata a ogni richiesta
+con le pagine pubbliche, tutti i progetti e gli articoli con `published_at` valorizzato,
+come nel blog. Pubblicazioni, modifiche e rimozioni sono recepite automaticamente,
+senza cron. Gli URL usano `APP_URL`: in produzione impostarlo al dominio pubblico
+canonico completo di HTTPS. `/robots.txt` pubblicizza automaticamente la sitemap.
+
+L'area `/admin` e `/login` sono escluse dalla sitemap e restituiscono
+`X-Robots-Tag: noindex, nofollow`, anche per redirect ed errori. Non bloccarle
+in `robots.txt`: i motori devono poter leggere la direttiva `noindex`.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
