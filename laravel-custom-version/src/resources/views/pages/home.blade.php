@@ -22,13 +22,7 @@
         </div>
 
         <div class="lg:col-span-5">
-            <div class="border border-slate-700/70 bg-slate-950/40 p-5 sm:p-6">
-                <p class="font-mono text-xs text-indigo-300">currently building</p>
-                <h2 class="mt-4 text-2xl font-bold text-white">irides</h2>
-                <p class="mt-3 text-sm leading-7 text-slate-400">A way to explore database structures and make their metadata available to applications and AI tools. It’s an open-source project in active Alpha.</p>
-                <a href="{{ route('projects.show', 'irides') }}" class="mt-6 inline-block text-sm text-indigo-300 hover:text-white">Read about the project →</a>
-                <p class="mt-6 pt-4 border-t border-slate-800 text-xs leading-6 text-slate-500">Elsewhere on the site: a community directory, pandemic data and a school project on the Lorenz system.</p>
-            </div>
+            <x-technical-profile compact />
         </div>
     </div>
 </section>

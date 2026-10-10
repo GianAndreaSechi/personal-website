@@ -19,6 +19,8 @@
             </div>
         </header>
 
+        <x-technical-profile />
+
         <section class="space-y-6">
             <h2 class="text-2xl font-bold text-white">Experience</h2>
             @foreach(config('profile.experience') as $experience)

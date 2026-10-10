@@ -8,10 +8,11 @@ return [
     'email' => 'me@gianandreasechi.com',
     'github' => 'https://github.com/GianAndreaSechi',
     'linkedin' => 'https://www.linkedin.com/in/gian-andrea-sechi/',
+    'stack' => ['PHP', 'Python', 'AWS', 'S3', 'Athena', 'Kubernetes', 'Docker', 'MySQL / Aurora', 'PostgreSQL'],
     'skills' => [
         'Backend' => ['PHP', 'Python', 'C# / ASP.NET', 'REST APIs', 'Node.js / NestJS'],
         'Data' => ['MySQL / Aurora', 'PostgreSQL', 'SQL Server', 'DynamoDB', 'Data pipelines'],
-        'Cloud & operations' => ['AWS', 'Kubernetes', 'Docker', 'Terraform', 'CI/CD'],
+        'Cloud & operations' => ['AWS', 'S3', 'Athena', 'Kubernetes', 'Docker', 'Terraform', 'CI/CD'],
         'Practices' => ['System design', 'Code review', 'Security remediation', 'Production support'],
     ],
     'experience' => [
