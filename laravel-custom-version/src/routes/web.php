@@ -15,7 +15,6 @@ Route::get('/robots.txt', [SitemapController::class, 'robots'])->name('robots');
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about-me', [PageController::class, 'about'])->name('about');
 Route::get('/resume', [PageController::class, 'resume'])->name('resume');
-Route::get('/resume/download', [PageController::class, 'downloadResume'])->name('resume.download');
 Route::get('/projects', [PageController::class, 'projects'])->name('projects');
 Route::get('/projects/{slug}', [PageController::class, 'projectShow'])->name('projects.show');
 Route::get('/irides', fn () => redirect()->route('projects.show', 'irides'))->name('irides');

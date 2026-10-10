@@ -37,11 +37,6 @@ class PageController extends Controller
         return view('pages.resume', compact('projects'));
     }
 
-    public function downloadResume()
-    {
-        return response()->download(resource_path('documents/gian-andrea-sechi-cv.pdf'), 'Gian-Andrea-Sechi-CV.pdf');
-    }
-
     public function projects(Request $request)
     {
         $query = Project::orderBy('sort_order', 'asc');

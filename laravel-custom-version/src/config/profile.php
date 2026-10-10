@@ -19,7 +19,11 @@ return [
             'company' => 'Musixmatch',
             'period' => 'June 2022 – present',
             'role' => 'Senior Software Engineer',
-            'progression' => 'Software Engineer (2022–2026) → Senior Software Engineer (since January 2026)',
+            'promotions' => [
+                ['role' => 'Senior Software Engineer', 'details' => 'L5 · Jan 2026 – present'],
+                ['role' => 'Software Engineer', 'details' => 'L4 · Jan 2025 – Jan 2026'],
+                ['role' => 'Software Engineer', 'details' => 'L3 · Jun 2022 – Jan 2025'],
+            ],
             'points' => [
                 'Backend development for data systems and royalty processing.',
                 'Development of a real-time data platform using AWS Kinesis, Firehose and Lambda, with APIs and data exports.',
@@ -32,7 +36,10 @@ return [
             'company' => 'Database Informatica',
             'period' => 'July 2011 – June 2022',
             'role' => 'Software Developer → Senior Full-Stack Engineer',
-            'progression' => 'Development roles from 2011; senior and technical reference from 2015.',
+            'promotions' => [
+                ['role' => 'Senior Full-Stack Engineer', 'details' => '2015–2022 · technical reference'],
+                ['role' => 'Junior Developer → Full-Stack Engineer', 'details' => '2011–2015'],
+            ],
             'points' => [
                 'Development and maintenance of business applications, websites and APIs using C#, ASP.NET, PHP and relational databases.',
                 'Work on electronic invoicing, payment systems and map-based search applications.',

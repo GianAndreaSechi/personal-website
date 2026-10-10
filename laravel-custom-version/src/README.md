@@ -29,7 +29,8 @@ Il comando salva una copia dei record precedenti in `storage/app/content-backups
 La revisione editoriale e i comandi per il deploy sono descritti in
 [docs/editorial/content-review.md](docs/editorial/content-review.md). Il README GitHub
 e le tracce degli articoli nella stessa cartella sono bozze non pubblicate.
-Il CV scaricabile è il PDF in `resources/documents/gian-andrea-sechi-cv.pdf`.
+Il pulsante “Request my CV” apre il programma email con l’oggetto precompilato.
+Il CV non è disponibile tramite un endpoint pubblico di download.
 
 ## About Laravel
 

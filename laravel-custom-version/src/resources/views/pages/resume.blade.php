@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Experience & CV | Gian Andrea Sechi')
-@section('meta_description', 'My software engineering experience at Musixmatch and Database Informatica, education, courses and downloadable CV.')
+@section('meta_description', 'My software engineering experience at Musixmatch and Database Informatica, education and courses. Get in touch to request my CV.')
 
 @section('content')
 <section class="resume-page py-16">
@@ -13,7 +13,7 @@
             <p class="mt-2 text-sm text-slate-400">{{ config('profile.location') }}</p>
             <p class="mt-5 max-w-3xl text-base leading-8 text-slate-400">I’ve worked in software development since 2011, from business applications and web platforms to backend services and data systems. I’m currently at Musixmatch.</p>
             <div class="mt-6 flex flex-wrap gap-5 text-sm">
-                <a href="{{ route('resume.download') }}" class="px-5 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">Download CV (PDF)</a>
+                <a href="mailto:{{ config('profile.email') }}?subject=Request%20for%20your%20CV" class="px-5 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">Request my CV</a>
                 <a href="{{ config('profile.linkedin') }}" target="_blank" rel="noopener noreferrer" class="py-3 text-indigo-300 hover:text-white">LinkedIn ↗</a>
                 <a href="{{ route('about') }}" class="py-3 text-slate-400 hover:text-white">The story behind the CV →</a>
             </div>
@@ -27,7 +27,14 @@
                         <div><h3 class="text-xl font-bold text-white">{{ $experience['company'] }}</h3><p class="mt-2 text-sm text-indigo-300">{{ $experience['role'] }}</p></div>
                         <p class="font-mono text-xs text-slate-500">{{ $experience['period'] }}</p>
                     </div>
-                    <p class="mt-4 text-xs leading-6 text-slate-500">{{ $experience['progression'] }}</p>
+                    <ol class="promotion-path mt-5" aria-label="Career progression at {{ $experience['company'] }}">
+                        @foreach($experience['promotions'] as $promotion)
+                            <li class="promotion-step">
+                                <span class="promotion-dot" aria-hidden="true"></span>
+                                <p>{{ $promotion['role'] }} <span>· {{ $promotion['details'] }}</span></p>
+                            </li>
+                        @endforeach
+                    </ol>
                     <ul class="mt-5 space-y-3 pl-5 list-disc text-sm leading-7 text-slate-300">
                         @foreach($experience['points'] as $point)<li>{{ $point }}</li>@endforeach
                     </ul>

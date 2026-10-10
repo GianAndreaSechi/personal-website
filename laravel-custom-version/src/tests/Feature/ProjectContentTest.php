@@ -86,6 +86,9 @@ class ProjectContentTest extends TestCase
         $this->get('/blog/welcome-to-my-new-website')->assertOk()->assertSee('100 e lode');
         $this->get('/blog/rss.xml')->assertOk();
         $this->assertNotFalse(simplexml_load_string($this->get('/blog/rss.xml')->getContent()));
-        $this->get('/resume/download')->assertDownload('Gian-Andrea-Sechi-CV.pdf');
+        $this->get('/resume')->assertSee('Request my CV')
+            ->assertSee('mailto:me@gianandreasechi.com?subject=Request%20for%20your%20CV', false)
+            ->assertDontSee('/resume/download', false);
+        $this->get('/resume/download')->assertNotFound();
     }
 }

@@ -25,7 +25,7 @@ The site is written in English. Home introduces Gian Andrea; About carries the p
 - Described the school work as a school project, covering Euler, RK2 and RK4 on the Lorenz model.
 - Separated NearMe's co-founding from the development contribution, and stated its closure in May 2021.
 - Labelled NearMe Data historical rather than promising up-to-date monitoring.
-- Removed stock project covers, kept page URLs and slugs, and packaged the existing CV PDF in resources/documents for a reproducible download.
+- Removed stock project covers and kept page URLs and slugs. The Resume page offers a “Request my CV” email link with a prefilled subject; there is no public download endpoint.
 - Verified that the public NearMe Data dashboard responds with HTTP 200; its link points to the existing public installation, including from local previews.
 - Replaced the contact form, which acknowledged messages without sending or saving them, with direct email and profile links.
 - Reduced repetition and numerical claims in Resume; detailed measurements can remain in the source CV pending confirmation.
