@@ -19,6 +19,9 @@ class Project extends Model
         'image_url',
         'is_featured',
         'sort_order',
+        'period',
+        'status',
+        'contribution',
     ];
 
     protected $casts = [

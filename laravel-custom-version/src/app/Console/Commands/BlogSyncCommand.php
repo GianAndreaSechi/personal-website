@@ -12,14 +12,15 @@ use Symfony\Component\Yaml\Yaml;
 
 class BlogSyncCommand extends Command
 {
-    protected $signature = 'blog:sync {--path=content/posts : The path to the markdown posts directory}';
+    protected $signature = 'blog:sync {--path=content/posts : The path to the markdown posts directory} {--slug= : Sync only this article} {--preserve-publication-date : Keep the publication date of existing articles}';
+
     protected $description = 'Sync markdown files from content/posts into the database';
 
     public function handle()
     {
         $postsPath = base_path($this->option('path'));
 
-        if (!File::exists($postsPath)) {
+        if (! File::exists($postsPath)) {
             File::makeDirectory($postsPath, 0755, true);
             $this->info("Created directory: {$postsPath}");
         }
@@ -28,10 +29,11 @@ class BlogSyncCommand extends Command
 
         if (empty($files)) {
             $this->warn("No markdown (.md) files found in {$postsPath}");
+
             return 0;
         }
 
-        $this->info("Found " . count($files) . " markdown file(s). Syncing into database...");
+        $this->info('Found '.count($files).' markdown file(s). Syncing into database...');
 
         $syncedCount = 0;
 
@@ -50,9 +52,13 @@ class BlogSyncCommand extends Command
             $title = $frontmatter['title'] ?? Str::title(str_replace('-', ' ', $filename));
             $slug = $frontmatter['slug'] ?? Str::slug($filename);
 
+            if ($this->option('slug') && $this->option('slug') !== $slug) {
+                continue;
+            }
+
             // Handle Category
             $categoryId = null;
-            if (!empty($frontmatter['category'])) {
+            if (! empty($frontmatter['category'])) {
                 $categoryName = $frontmatter['category'];
                 $categorySlug = Str::slug($categoryName);
                 $category = Category::firstOrCreate(
@@ -67,13 +73,13 @@ class BlogSyncCommand extends Command
 
             // Handle Tags
             $tags = [];
-            if (!empty($frontmatter['tags'])) {
+            if (! empty($frontmatter['tags'])) {
                 $tags = is_array($frontmatter['tags']) ? $frontmatter['tags'] : array_map('trim', explode(',', $frontmatter['tags']));
             }
 
             // Reading time
             $readingTime = $frontmatter['reading_time'] ?? null;
-            if (!$readingTime) {
+            if (! $readingTime) {
                 $wordCount = str_word_count(strip_tags($body));
                 $readingTime = max(1, (int) ceil($wordCount / 200));
             }
@@ -89,6 +95,11 @@ class BlogSyncCommand extends Command
                 $publishedAt = null;
             } else {
                 $publishedAt = now();
+            }
+
+            $existingPost = Post::where('slug', $slug)->first();
+            if ($existingPost && $this->option('preserve-publication-date')) {
+                $publishedAt = $existingPost->published_at;
             }
 
             Post::updateOrCreate(

@@ -6,9 +6,12 @@ use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 // Public Front-End Routes
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+Route::get('/robots.txt', [SitemapController::class, 'robots'])->name('robots');
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about-me', [PageController::class, 'about'])->name('about');
 Route::get('/resume', [PageController::class, 'resume'])->name('resume');
@@ -25,7 +28,6 @@ Route::get('/blog/rss.xml', [BlogController::class, 'rss'])->name('blog.rss');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 // Admin Authentication Routes
 Route::get('/admin/login', [AdminAuthController::class, 'showLogin'])->name('admin.login');

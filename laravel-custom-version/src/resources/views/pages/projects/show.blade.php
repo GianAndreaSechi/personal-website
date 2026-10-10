@@ -5,7 +5,7 @@
 
 @section('content')
 <article class="max-w-4xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
-    <a href="{{ route('projects') }}" class="font-mono text-xs text-slate-500 hover:text-indigo-300 transition-colors">← all projects</a>
+    <a href="{{ route('projects') }}" class="font-mono text-xs text-slate-500 hover:text-indigo-300 transition-colors">← All projects</a>
 
     <!-- Project Header -->
     <header class="mt-8 pb-9 border-b border-slate-800 space-y-4">
@@ -15,10 +15,10 @@
             </span>
             <div class="flex items-center gap-4 text-xs font-mono">
                 @if($project->project_url)
-                    <a href="{{ $project->project_url }}" target="_blank" class="text-slate-400 hover:text-indigo-300 transition-colors">live demo ↗</a>
+                    <a href="{{ $project->project_url }}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-300 transition-colors">{{ $project->status === 'Historical project' ? 'Historical dashboard' : 'Visit project' }} ↗</a>
                 @endif
                 @if($project->github_url)
-                    <a href="{{ $project->github_url }}" target="_blank" class="text-slate-400 hover:text-indigo-300 transition-colors">github ↗</a>
+                    <a href="{{ $project->github_url }}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-300 transition-colors">Source on GitHub ↗</a>
                 @endif
             </div>
         </div>
@@ -45,6 +45,14 @@
             </div>
         @endif
     </header>
+
+    @if($project->status || $project->period || $project->contribution)
+    <dl class="mt-7 grid sm:grid-cols-3 gap-5 text-sm">
+        @if($project->status)<div><dt class="font-mono text-xs text-slate-500">Status</dt><dd class="mt-2 text-slate-300">{{ $project->status }}</dd></div>@endif
+        @if($project->period)<div><dt class="font-mono text-xs text-slate-500">Period</dt><dd class="mt-2 text-slate-300">{{ $project->period }}</dd></div>@endif
+        @if($project->contribution)<div><dt class="font-mono text-xs text-slate-500">My contribution</dt><dd class="mt-2 text-slate-300">{{ $project->contribution }}</dd></div>@endif
+    </dl>
+    @endif
 
     <!-- Cover Image -->
     @if($project->image_url)

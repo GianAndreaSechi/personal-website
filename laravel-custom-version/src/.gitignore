@@ -28,3 +28,4 @@ Thumbs.db
 DEPLOY.md
 PERSONAL_MYSQL.MD
 *.pdf
+!/resources/documents/gian-andrea-sechi-cv.pdf

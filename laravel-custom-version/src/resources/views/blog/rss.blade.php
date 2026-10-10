@@ -1,9 +1,9 @@
 <?= '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Gian Andrea Sechi - Technical Blog</title>
+        <title>Gian Andrea Sechi — Notes &amp; Ideas</title>
         <link>{{ route('blog.index') }}</link>
-        <description>Engineering articles, distributed systems, real-time AWS platforms, and software craftsmanship by Gian Andrea Sechi.</description>
+        <description>Notes on software, personal projects, experiments and learning by Gian Andrea Sechi.</description>
         <language>en</language>
         <pubDate>{{ now()->toRssString() }}</pubDate>
         <atom:link href="{{ route('blog.rss') }}" rel="self" type="application/rss+xml" />
