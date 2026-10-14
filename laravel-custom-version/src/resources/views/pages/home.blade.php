@@ -2,7 +2,7 @@
 
 @section('title', 'Gian Andrea Sechi | Software, Projects & Notes')
 
-@section('meta_description', 'I’m Gian Andrea Sechi, a software engineer at Musixmatch. Explore my projects, open-source experiments, writing and the story behind them.')
+@section('meta_description', 'I’m Gian Andrea Sechi, a senior software engineer at Musixmatch. Explore my projects, open-source experiments, writing and the story behind them.')
 
 @section('content')
 <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-14 sm:pt-24 sm:pb-20">
@@ -10,7 +10,7 @@
         <div class="lg:col-span-7">
             <p class="font-mono text-xs text-indigo-300 mb-5">{{ strtolower(config('profile.role')) }} · italy</p>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">Hi, I’m<br>Gian Andrea Sechi.</h1>
-            <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-slate-400">I’m a software engineer at Musixmatch, working on backend systems and data. I’ve been building software since 2011, from business applications to personal experiments like irides.
+            <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-slate-400">I’m a senior software engineer at Musixmatch, working on backend systems and data. I’ve been building software since 2011, from business applications to personal experiments like irides.
             </p><p class="mt-4 max-w-2xl text-base sm:text-lg leading-8 text-slate-400">Here I share what I build, what I’m learning and the projects that have stayed with me over the years.</p>
             <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium">
                 <a href="{{ route('about') }}" class="text-indigo-300 hover:text-white transition-colors">More about me <span aria-hidden="true">→</span></a>
@@ -44,6 +44,8 @@
         <a href="{{ route('projects') }}" class="mt-8 inline-block sm:hidden text-sm text-indigo-300">All projects →</a>
     </div>
 </section>
+
+<x-site-terminal :projects="$featuredProjects" :posts="$latestPosts" />
 
 <section class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10">
     <div class="lg:col-span-4"><p class="font-mono text-xs text-indigo-300">writing</p><h2 class="mt-2 text-2xl font-bold text-white">From the notebook.</h2><p class="mt-3 text-sm leading-6 text-slate-500">Occasional notes on software, personal projects and things I’m learning. Some are technical; others are still taking shape.</p><a href="{{ route('blog.index') }}" class="inline-block mt-5 text-sm text-indigo-300 hover:text-white">Browse the blog →</a></div>
