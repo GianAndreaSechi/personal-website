@@ -45,6 +45,8 @@
     </div>
 </section>
 
+<x-site-terminal :projects="$featuredProjects" :posts="$latestPosts" />
+
 <section class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10">
     <div class="lg:col-span-4"><p class="font-mono text-xs text-indigo-300">writing</p><h2 class="mt-2 text-2xl font-bold text-white">From the notebook.</h2><p class="mt-3 text-sm leading-6 text-slate-500">Occasional notes on software, personal projects and things I’m learning. Some are technical; others are still taking shape.</p><a href="{{ route('blog.index') }}" class="inline-block mt-5 text-sm text-indigo-300 hover:text-white">Browse the blog →</a></div>
     <div class="lg:col-span-8 divide-y divide-slate-800 border-t border-slate-800">
