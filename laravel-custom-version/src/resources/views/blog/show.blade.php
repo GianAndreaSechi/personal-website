@@ -33,7 +33,7 @@
         </div>
     @endif
 
-    <aside class="mt-10 pt-6 border-t border-slate-800 flex gap-4 text-sm"><span class="font-mono text-indigo-300 tracking-tighter">&lt;/&gt;</span><div><p class="font-semibold text-slate-200"><a href="{{ route('about') }}" class="hover:text-indigo-300">Gian Andrea Sechi</a></p><p class="mt-1 text-xs leading-5 text-slate-500">Software engineer at Musixmatch. Sharing projects, experiments and things I’m learning.</p></div></aside>
+    <aside class="mt-10 pt-6 border-t border-slate-800 flex gap-4 text-sm"><span class="font-mono text-indigo-300 tracking-tighter">&lt;/&gt;</span><div><p class="font-semibold text-slate-200"><a href="{{ route('about') }}" class="hover:text-indigo-300">Gian Andrea Sechi</a></p><p class="mt-1 text-xs leading-5 text-slate-500">Senior software engineer at Musixmatch. Sharing projects, experiments and things I’m learning.</p></div></aside>
 
     @if($relatedPosts->count())
         <section class="mt-12 pt-7 border-t border-slate-800">
