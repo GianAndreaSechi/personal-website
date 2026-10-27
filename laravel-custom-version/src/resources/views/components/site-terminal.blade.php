@@ -72,7 +72,7 @@
     </template>
     <template data-terminal-response="contact">
         <ul class="space-y-2">
-            <li><a href="mailto:{{ config('profile.email') }}" class="text-indigo-300 hover:underline">{{ config('profile.email') }}</a></li>
+            <li><a href="mailto:{{ config('profile.email') }}" rel="nofollow" class="text-indigo-300 hover:underline">{{ config('profile.email') }}</a></li>
             <li><a href="{{ config('profile.github') }}" class="text-indigo-300 hover:underline">GitHub →</a></li>
             <li><a href="{{ config('profile.linkedin') }}" class="text-indigo-300 hover:underline">LinkedIn →</a></li>
         </ul>

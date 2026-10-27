@@ -59,7 +59,7 @@
     <footer class="mt-20 border-t border-slate-800/80">
         <div class="max-w-6xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs text-slate-500">
             <p>© {{ date('Y') }} Gian Andrea Sechi · Built with Laravel.</p>
-            <div class="flex flex-wrap gap-x-5 gap-y-3"><a href="https://github.com/GianAndreaSechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">GitHub</a><a href="https://linkedin.com/in/gian-andrea-sechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">LinkedIn</a><a href="https://www.threads.com/@gianandrea_sechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">Threads</a><a href="https://x.com/gasechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">X</a><a href="mailto:me@gianandreasechi.com" class="hover:text-indigo-300">Email</a></div>
+            <div class="flex flex-wrap gap-x-5 gap-y-3"><a href="https://github.com/GianAndreaSechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">GitHub</a><a href="https://linkedin.com/in/gian-andrea-sechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">LinkedIn</a><a href="https://www.threads.com/@gianandrea_sechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">Threads</a><a href="https://x.com/gasechi" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-300">X</a><a href="mailto:me@gianandreasechi.com" rel="nofollow" class="hover:text-indigo-300">Email</a></div>
         </div>
     </footer>
 </body>

@@ -13,7 +13,7 @@
             <p class="mt-2 text-sm text-slate-400">{{ config('profile.location') }}</p>
             <p class="mt-5 max-w-3xl text-base leading-8 text-slate-400">I’ve worked in software development since 2011, from business applications and web platforms to backend services and data systems. I’m currently at Musixmatch.</p>
             <div class="mt-6 flex flex-wrap gap-5 text-sm">
-                <a href="mailto:{{ config('profile.email') }}?subject=Request%20for%20your%20CV" class="px-5 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">Request my CV</a>
+                <a href="mailto:{{ config('profile.email') }}?subject=Request%20for%20your%20CV" rel="nofollow" class="px-5 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">Request my CV</a>
                 <a href="{{ config('profile.linkedin') }}" target="_blank" rel="noopener noreferrer" class="py-3 text-indigo-300 hover:text-white">LinkedIn ↗</a>
                 <a href="{{ route('about') }}" class="py-3 text-slate-400 hover:text-white">The story behind the CV →</a>
             </div>
