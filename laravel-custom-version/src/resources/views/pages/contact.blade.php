@@ -14,7 +14,7 @@
         <section class="space-y-5">
             <h2 class="text-xl font-bold text-white">Email me</h2>
             <p class="text-sm leading-7 text-slate-400">Email is the best way to get in touch. If you’re writing about a project, a little context or a link will help me understand what you have in mind.</p>
-            <a href="mailto:{{ config('profile.email') }}" class="inline-block text-base sm:text-lg text-indigo-300 hover:text-white break-all">{{ config('profile.email') }} ↗</a>
+            <a href="mailto:{{ config('profile.email') }}" rel="nofollow" class="inline-block text-base sm:text-lg text-indigo-300 hover:text-white break-all">{{ config('profile.email') }} ↗</a>
         </section>
         <section class="border-t border-slate-800 pt-5 md:border-t-0 md:pt-0 space-y-5">
             <h2 class="text-xl font-bold text-white">Find me elsewhere</h2>

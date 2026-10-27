@@ -8,7 +8,11 @@
 <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-14 sm:pt-24 sm:pb-20">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <div class="lg:col-span-7">
-            <p class="font-mono text-xs text-indigo-300 mb-5">{{ strtolower(config('profile.role')) }} · italy</p>
+            @php($heroRole = strtolower(config('profile.role')))
+            <p class="font-mono text-xs text-indigo-300 mb-5 flex flex-wrap items-center gap-x-[1ch]" aria-label="{{ $heroRole }} · italy">
+                <span class="home-role-slot" style="--role-length: {{ mb_strlen($heroRole) }}" aria-hidden="true"><span class="home-role-text">{{ $heroRole }}</span></span>
+                <span aria-hidden="true">· italy</span>
+            </p>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">Hi, I’m<br>Gian Andrea Sechi.</h1>
             <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-slate-400">I’m a senior software engineer at Musixmatch, working on backend systems and data. I’ve been building software since 2011, from business applications to personal experiments like irides.
             </p><p class="mt-4 max-w-2xl text-base sm:text-lg leading-8 text-slate-400">Here I share what I build, what I’m learning and the projects that have stayed with me over the years.</p>
